@@ -1,0 +1,872 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Lenis smooth scroll ── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ── Base styles ── */
+html, body {
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: #F4F4F1;
+  color: #1A1A1A;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Landing utilities ── */
+.tracking-ultra {
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.blur-nav {
+  background: rgba(244, 244, 241, 0.82);
+  backdrop-filter: saturate(200%) blur(24px);
+  -webkit-backdrop-filter: saturate(200%) blur(24px);
+  border-bottom: 1px solid rgba(200, 150, 62, 0.08);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.03),
+    0 1px 0 rgba(200, 150, 62, 0.06);
+}
+
+/* ── Marquee Band — Canyon Band ── */
+
+.marquee-band {
+  background: linear-gradient(
+    180deg,
+    #1E3A5F 0%,
+    #162c49 50%,
+    #1E3A5F 100%
+  );
+  position: relative;
+}
+
+/* Decorative top/bottom gradient borders */
+.marquee-band-border-top {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 150, 62, 0.6) 15%,
+    rgba(239, 197, 132, 0.8) 30%,
+    rgba(184, 69, 58, 0.5) 50%,
+    rgba(239, 197, 132, 0.8) 70%,
+    rgba(200, 150, 62, 0.6) 85%,
+    transparent 100%
+  );
+}
+
+.marquee-band-border-bottom {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 150, 62, 0.4) 20%,
+    rgba(184, 69, 58, 0.3) 50%,
+    rgba(200, 150, 62, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* Primary row */
+.marquee-band-row-primary {
+  padding: 1rem 0 0.35rem;
+  overflow: hidden;
+}
+
+.marquee-band-item-primary {
+  font-family: var(--font-dm-serif), 'DM Serif Display', Georgia, serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: rgba(239, 197, 132, 0.9);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .marquee-band-item-primary {
+    font-size: 1.35rem;
+  }
+}
+
+/* Secondary row */
+.marquee-band-row-secondary {
+  padding: 0.25rem 0 0.85rem;
+  overflow: hidden;
+}
+
+.marquee-band-item-secondary {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+/* Edge fade masks */
+.marquee-band-fade-left,
+.marquee-band-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-band-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, #1E3A5F 0%, transparent 100%);
+}
+
+.marquee-band-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, #1E3A5F 0%, transparent 100%);
+}
+
+/* Tracks */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-reverse 45s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Waveform bars ── */
+.waveform-bar {
+  display: inline-block;
+  width: 2px;
+  border-radius: 1px;
+  transform-origin: bottom;
+  background-color: currentColor;
+}
+
+.waveform-bar.playing {
+  animation: waveform-bar 1s ease-in-out infinite;
+}
+
+.waveform-bar.idle {
+  animation: waveform-bar-idle 2s ease-in-out infinite;
+}
+
+@keyframes waveform-bar {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes waveform-bar-idle {
+  0%, 100% { transform: scaleY(0.15); }
+  50% { transform: scaleY(0.3); }
+}
+
+/* ── App feed (preserved) ── */
+.snap-feed {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-feed > * {
+  scroll-snap-align: start;
+}
+
+/* ── Hero Section — Editorial Overlap ── */
+
+.hero-section {
+  background:
+    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(200, 150, 62, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 85% 20%, rgba(184, 69, 58, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 80% at 70% 90%, rgba(30, 58, 95, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #F4F4F1 0%, #f0ece6 100%);
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 600px at 70% 50%, rgba(200, 150, 62, 0.06) 0%, transparent 70%),
+    radial-gradient(circle 400px at 30% 70%, rgba(184, 69, 58, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.hero-editorial-text {
+  position: absolute;
+  right: -3%;
+  top: 10%;
+  font-family: var(--font-dm-serif), 'DM Serif Display', Georgia, serif;
+  font-size: clamp(8rem, 20vw, 22rem);
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200, 150, 62, 0.08);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+@media (max-width: 1023px) {
+  .hero-editorial-text {
+    display: none;
+  }
+}
+
+.hero-gold-line {
+  position: absolute;
+  left: 6%;
+  top: 15%;
+  width: 2px;
+  height: 35%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(200, 150, 62, 0.4) 20%,
+    rgba(184, 69, 58, 0.25) 60%,
+    transparent 100%
+  );
+  transform-origin: top;
+}
+
+.hero-superline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200, 150, 62, 0.65);
+}
+
+@media (min-width: 640px) {
+  .hero-superline {
+    font-size: 0.8rem;
+  }
+}
+
+.hero-accent-word {
+  background: linear-gradient(
+    135deg,
+    #C8963E 0%,
+    #B8453A 50%,
+    #1E3A5F 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-divider {
+  height: 2px;
+  max-width: 120px;
+  background: linear-gradient(
+    90deg,
+    #C8963E 0%,
+    rgba(184, 69, 58, 0.5) 60%,
+    transparent 100%
+  );
+  transform-origin: left;
+}
+
+.hero-phone-halo {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(200, 150, 62, 0.12) 0%,
+    rgba(184, 69, 58, 0.06) 35%,
+    rgba(30, 58, 95, 0.03) 60%,
+    transparent 75%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #F4F4F1 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Utah Atmospheric Gradients ── */
+.utah-hero-glow {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(200, 150, 62, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(184, 69, 58, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 60% 90%, rgba(30, 58, 95, 0.03) 0%, transparent 70%);
+}
+
+.utah-section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 150, 62, 0.2) 20%,
+    rgba(184, 69, 58, 0.15) 50%,
+    rgba(30, 58, 95, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+/* ── Gradient CTA Button ── */
+.btn-utah-gradient {
+  background: linear-gradient(135deg, #C8963E 0%, #B8453A 100%);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-utah-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #B8453A 0%, #C8963E 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-utah-gradient:hover::before {
+  opacity: 1;
+}
+
+.btn-utah-gradient span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Gold shimmer text accent ── */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C8963E 0%,
+    #efc584 25%,
+    #B8453A 50%,
+    #efc584 75%,
+    #C8963E 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-gold 4s ease-in-out infinite;
+}
+
+/* ── Utah warm badge ── */
+.badge-utah {
+  background: linear-gradient(135deg, rgba(200, 150, 62, 0.12) 0%, rgba(184, 69, 58, 0.08) 100%);
+  border: 1px solid rgba(200, 150, 62, 0.15);
+  color: #8F6520;
+}
+
+/* ── Sticky Product Section ── */
+
+/* Desktop: text blocks left/right */
+.sticky-text-block {
+  max-width: 22rem;
+  padding-inline: 1.5rem;
+}
+.sticky-text-block[data-desktop-side="left"] {
+  margin-left: 10%;
+}
+.sticky-text-block[data-desktop-side="right"] {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+/* Mobile: phone scale + text overlay at bottom */
+@media (max-width: 1023px) {
+  .mobile-phone-sticky-scale {
+    transform: scale(0.85);
+    transform-origin: center center;
+    margin-top: -2rem;
+  }
+
+  .sticky-slide-wrapper {
+    align-items: flex-end !important;
+  }
+
+  .sticky-text-block {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0 !important;
+    padding: 1.25rem 1.5rem 2rem;
+    background: rgba(244, 244, 241, 0.78);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 1.25rem 1.25rem 0 0;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-bottom: none;
+    box-shadow:
+      0 -1px 0 0 rgba(255,255,255,0.4),
+      0 -8px 30px rgba(200,150,62,0.08),
+      inset 0 1px 0 0 rgba(255,255,255,0.3);
+  }
+
+  .sticky-progress-dots {
+    position: fixed;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 30;
+  }
+  .sticky-progress-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C8963E;
+    opacity: 0.3;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+}
+
+/* Desktop: CTA block positioning */
+.sticky-cta-block {
+  max-width: 26rem;
+}
+
+/* Mobile: CTA block — more opaque for readability over scaled phone */
+@media (max-width: 1023px) {
+  .sticky-cta-block {
+    background: rgba(244, 244, 241, 0.92);
+  }
+}
+
+/* Desktop: no scale, hide dots */
+@media (min-width: 1024px) {
+  .mobile-phone-sticky-scale {
+    transform: none;
+  }
+  .sticky-progress-dots {
+    display: none;
+  }
+}
+
+/* ── Glass Card System — Utah Desert Glass ── */
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(253, 248, 240, 0.5) 50%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+  backdrop-filter: saturate(200%) blur(18px);
+  -webkit-backdrop-filter: saturate(200%) blur(18px);
+  border: 1px solid rgba(200, 150, 62, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.02),
+    0 0 0 0.5px rgba(200, 150, 62, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease;
+}
+
+/* Warm diagonal reflection with golden tint */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 150, 62, 0.06) 0%,
+    rgba(255, 255, 255, 0.12) 15%,
+    transparent 40%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.05) 80%,
+    rgba(200, 150, 62, 0.04) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gold-tinted shimmer sweep */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -80%;
+  left: -80%;
+  width: 260%;
+  height: 260%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(200, 150, 62, 0.03) 40%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(200, 150, 62, 0.06) 48%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(200, 150, 62, 0.06) 52%,
+    rgba(255, 255, 255, 0.1) 55%,
+    rgba(200, 150, 62, 0.03) 60%,
+    transparent 70%
+  );
+  animation: glass-shimmer 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.glass-card:hover {
+  border-color: rgba(200, 150, 62, 0.18);
+  box-shadow:
+    0 8px 32px rgba(200, 150, 62, 0.12),
+    0 2px 8px rgba(184, 69, 58, 0.04),
+    0 0 0 0.5px rgba(200, 150, 62, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* ── Premium — Utah Sandstone Glass with tri-color chromatic edge ── */
+.glass-card-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    rgba(253, 248, 240, 0.6) 0%,
+    rgba(255, 255, 255, 0.55) 40%,
+    rgba(253, 248, 240, 0.5) 100%
+  );
+  backdrop-filter: saturate(220%) blur(26px);
+  -webkit-backdrop-filter: saturate(220%) blur(26px);
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 8px 40px rgba(200, 150, 62, 0.1),
+    0 2px 12px rgba(184, 69, 58, 0.04),
+    0 0 60px rgba(200, 150, 62, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(200, 150, 62, 0.06);
+  transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Tri-color Utah chromatic prismatic border */
+.glass-card-premium::after {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 45deg,
+    rgba(200, 150, 62, 0.4) 0deg,
+    rgba(239, 197, 132, 0.3) 40deg,
+    rgba(184, 69, 58, 0.3) 90deg,
+    rgba(255, 255, 255, 0.35) 140deg,
+    rgba(30, 58, 95, 0.3) 200deg,
+    rgba(255, 255, 255, 0.2) 260deg,
+    rgba(184, 69, 58, 0.2) 310deg,
+    rgba(200, 150, 62, 0.4) 360deg
+  );
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1.5px;
+  animation: chromatic-rotate 16s linear infinite;
+}
+
+/* Warm golden mirror reflection overlay */
+.glass-card-premium::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(200, 150, 62, 0.02) 32%,
+    rgba(255, 255, 255, 0.06) 38%,
+    rgba(200, 150, 62, 0.05) 43%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(200, 150, 62, 0.05) 57%,
+    rgba(255, 255, 255, 0.06) 62%,
+    rgba(200, 150, 62, 0.02) 68%,
+    transparent 80%
+  );
+  animation: glass-shimmer 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.glass-card-premium:hover {
+  box-shadow:
+    0 16px 56px rgba(200, 150, 62, 0.18),
+    0 4px 16px rgba(184, 69, 58, 0.06),
+    0 0 80px rgba(200, 150, 62, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(200, 150, 62, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ── Feature grid cell — warm glass with Utah accent on hover ── */
+.glass-cell {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 150, 62, 0.06) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    transparent 45%,
+    transparent 55%,
+    rgba(200, 150, 62, 0.03) 80%,
+    rgba(184, 69, 58, 0.02) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-cell:hover {
+  background: linear-gradient(
+    160deg,
+    rgba(253, 248, 240, 0.7) 0%,
+    rgba(255, 255, 255, 0.65) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 0 0.5px rgba(200, 150, 62, 0.08),
+    0 4px 20px rgba(200, 150, 62, 0.08),
+    0 1px 4px rgba(184, 69, 58, 0.03);
+}
+
+.glass-cell:hover::after {
+  opacity: 1;
+}
+
+/* ── Ambient gold glow ── */
+@keyframes specular-breathe {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.1; }
+}
+
+@keyframes glass-shimmer {
+  0%, 100% { transform: translateX(-60%) rotate(45deg); }
+  50% { transform: translateX(60%) rotate(45deg); }
+}
+
+/* Chromatic rotation — gentler for warm tones */
+@keyframes chromatic-rotate {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(8deg) brightness(1.02); }
+  50% { filter: hue-rotate(0deg) brightness(1.04); }
+  75% { filter: hue-rotate(-8deg) brightness(1.02); }
+  100% { filter: hue-rotate(0deg) brightness(1); }
+}
+
+/* ── Iniciar button animations (inside Three.js Html overlay) ── */
+@keyframes hero-btn-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes hero-btn-pulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.08); }
+}
+
+@keyframes hero-btn-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+@keyframes hero-btn-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@keyframes testimonial-shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* ── Play invite animations ── */
+@keyframes play-ring-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes play-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,150,62,0); }
+  50% { box-shadow: 0 0 20px 4px rgba(200,150,62,0.3); }
+}
+
+@keyframes invite-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.play-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(200,150,62,0.4), rgba(184,69,58,0.3)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: play-ring-pulse 1.8s ease-out infinite;
+}
+
+.play-glow-active {
+  animation: play-glow 2s ease-in-out infinite;
+  border-radius: 9999px;
+}
+
+.invite-label {
+  animation: invite-fade-in 0.6s ease-out both;
+  animation-delay: 0.4s;
+}
+
+/* ── App premium utilities ── */
+
+.premium-spinner {
+  border: 3px solid rgba(200, 150, 62, 0.15);
+  border-top-color: #C8963E;
+  border-radius: 50%;
+  animation: spin 0.8s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.progress-glow {
+  box-shadow: 0 0 8px rgba(200, 150, 62, 0.4), 0 0 2px rgba(200, 150, 62, 0.6);
+}
+
+.utah-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200, 150, 62, 0.3), rgba(184, 69, 58, 0.15), transparent);
+}
+
+.skeleton-premium {
+  background: linear-gradient(90deg, rgba(200, 150, 62, 0.06) 0%, rgba(200, 150, 62, 0.14) 50%, rgba(200, 150, 62, 0.06) 100%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 0.75rem;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.app-grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .lenis {
+    scroll-behavior: auto !important;
+  }
+}

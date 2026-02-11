@@ -1,0 +1,135 @@
+.frame {
+  position: relative;
+  width: 260px;
+  height: 530px;
+  border-radius: 44px;
+  background: #1A1A1A;
+  padding: 12px;
+  box-shadow:
+    0 0 0 1px rgba(200,150,62,0.12),
+    0 0 50px rgba(200,150,62,0.12),
+    0 0 100px rgba(200,150,62,0.04),
+    0 20px 60px rgba(0,0,0,0.18),
+    0 8px 20px rgba(0,0,0,0.1),
+    inset 0 0 0 1.5px rgba(200,150,62,0.06);
+  overflow: hidden;
+}
+
+/* Diagonal glass reflection */
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.12) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(255,255,255,0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Warm golden shimmer sweep */
+.frame::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(200,150,62,0.04) 42%,
+    rgba(255,255,255,0.1) 46%,
+    rgba(200,150,62,0.08) 50%,
+    rgba(255,255,255,0.1) 54%,
+    rgba(200,150,62,0.04) 58%,
+    transparent 70%
+  );
+  animation: shimmer 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 21;
+  border-radius: inherit;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  background: #FAFAF8;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Dynamic Island */
+.dynamicIsland {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 22px;
+  background: #1A1A1A;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+/* Side buttons */
+.buttonLeft {
+  position: absolute;
+  left: -2px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: #2a2a2a;
+}
+
+.buttonMute {
+  top: 100px;
+  height: 24px;
+}
+
+.buttonVolUp {
+  top: 148px;
+  height: 38px;
+}
+
+.buttonVolDown {
+  top: 196px;
+  height: 38px;
+}
+
+.buttonRight {
+  position: absolute;
+  right: -2px;
+  top: 160px;
+  width: 3px;
+  height: 52px;
+  border-radius: 2px 0 0 2px;
+  background: #2a2a2a;
+}
+
+@media (max-width: 640px) {
+  .frame {
+    width: 220px;
+    height: 450px;
+    border-radius: 38px;
+    padding: 10px;
+  }
+  .screen {
+    border-radius: 30px;
+  }
+  .dynamicIsland {
+    width: 68px;
+    height: 18px;
+    top: 8px;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) rotate(45deg); }
+}
