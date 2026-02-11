@@ -124,14 +124,25 @@ export default function MagicLinkPage() {
           Usa el email con el que compraste en Hotmart
         </p>
 
-        {process.env.NODE_ENV === 'development' && (
-          <button
-            onClick={handleDevLogin}
-            className="w-full mt-4 bg-amber-500 text-white font-semibold py-3 rounded-xl active:scale-95 transition-transform text-sm"
-          >
-            Dev Login (solo desarrollo)
-          </button>
-        )}
+        <div className="relative mt-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-200" />
+          </div>
+          <div className="relative flex justify-center text-xs">
+            <span className="px-3 bg-background-light text-gray-400">o</span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleDevLogin}
+          className="w-full mt-4 text-sm font-semibold py-3.5 rounded-xl active:scale-95 transition-all text-white"
+          style={{ background: 'linear-gradient(135deg, #C8963E, #B8453A)' }}
+        >
+          Acceso Demo
+        </button>
+        <p className="text-center text-[11px] text-gray-400 mt-2">
+          Explora la app con contenido de prueba
+        </p>
       </div>
     </div>
   );
