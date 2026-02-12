@@ -9,6 +9,14 @@ module.exports = {
       { protocol: 'https', hostname: '*.cloudfront.net' },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/ventas',
+        destination: '/ventas.html',
+      },
+    ];
+  },
   async headers() {
     return [
       {
