@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Starbiz Voices — The 21-Day Audio Protocol to reconnect with your child. Created by 21 specialists. Only $17 USD.">
+    <meta property="og:title" content="Starbiz Voices — Reconnect with Your Child in 21 Days">
+    <meta property="og:description"
+        content="21 audios. 21 experts. 5 minutes a day. The program that is transforming families.">
+    <title>Starbiz Voices — Reconnect with Your Child</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========== CSS RESET & CUSTOM PROPERTIES ========== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-night: #0B0E14;
+            --color-dawn: #1A1520;
+            --color-warm: #FFF8F0;
+            --color-light: #FFFDFB;
+            --color-gold: #D4A853;
+            --color-gold-bright: #F0C75E;
+            --color-ember: #E8734A;
+            --color-ember-dark: #C45A32;
+            --color-trust: #4A7FB5;
+            --color-text-dark: #1A1A1A;
+            --color-text-light: #F5E6D3;
+            --color-text-muted: #8A8590;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --content-width: 720px;
+            --section-padding: 6rem;
+            --side-padding: clamp(1.5rem, 5vw, 4rem);
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-dark);
+            background: var(--color-night);
+            overflow-x: hidden;
+            line-height: 1.75;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ========== NOISE TEXTURE OVERLAY ========== */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.028;
+            mix-blend-mode: overlay;
+        }
+
+        /* ========== SECTION BASE STYLES ========== */
+        .section {
+            width: 100%;
+            position: relative;
+        }
+
+        .section-inner {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: var(--section-padding) var(--side-padding);
+        }
+
+        .section--dark {
+            background: var(--color-night);
+            color: var(--color-text-light);
+        }
+
+        .section--warm {
+            background: var(--color-warm);
+            color: var(--color-text-dark);
+        }
+
+        .section--light {
+            background: var(--color-light);
+            color: var(--color-text-dark);
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        .pre-title {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title--lg {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        .section-title--xl {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        /* ========== CTA BUTTON ========== */
+        .cta-btn {
+            display: inline-block;
+            background: var(--color-ember);
+            color: #fff;
+            padding: 1.125rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.0625rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cta-btn:hover {
+            background: var(--color-ember-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 115, 74, 0.35);
+        }
+
+        .cta-btn--pulse {
+            animation: ctaPulse 2s infinite;
+        }
+
+        @keyframes ctaPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(232, 115, 74, 0.45);
+            }
+
+            70% {
+                box-shadow: 0 0 0 16px rgba(232, 115, 74, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(232, 115, 74, 0);
+            }
+        }
+
+        .cta-btn--large {
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-sub {
+            display: block;
+            text-align: center;
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+        }
+
+        /* ========== TRUST BADGES ========== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--color-trust);
+        }
+
+        .trust-badges span {
+            white-space: nowrap;
+        }
+
+        /* ========== SECTION 1: HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 1.5rem;
+            left: var(--side-padding);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            z-index: 10;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            padding: 0 var(--side-padding);
+            transform: translateY(-3vh);
+        }
+
+        .hero-orb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.07) 0%, transparent 70%);
+            animation: orbPulse 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes orbPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.18);
+                opacity: 1;
+            }
+        }
+
+        .hero-pre {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.12;
+            color: var(--color-text-light);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .word {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: rgba(245, 230, 211, 0.75);
+            max-width: 540px;
+            margin: 0 auto 2.25rem;
+            line-height: 1.7;
+            opacity: 0;
+        }
+
+        .hero-cta-wrap {
+            opacity: 0;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            opacity: 0.35;
+        }
+
+        .scroll-line {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--color-gold));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--color-gold);
+            position: absolute;
+            top: 0;
+            left: -1px;
+            animation: scrollDot 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDot {
+            0% {
+                top: 0;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 36px;
+                opacity: 0;
+            }
+        }
+
+        /* ========== SECTION 2: PAIN ========== */
+        .pain-card {
+            background: rgba(255, 255, 255, 0.025);
+            border-left: 3px solid var(--color-ember);
+            padding: 1.75rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .pain-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-card p {
+            font-size: 0.9375rem;
+            color: rgba(245, 230, 211, 0.6);
+            line-height: 1.7;
+        }
+
+        .pain-closing {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .pain-closing .highlight-gold {
+            color: var(--color-gold);
+            font-weight: 700;
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .pain-closing .highlight-ember {
+            color: var(--color-ember);
+            font-weight: 700;
+        }
+
+        /* ========== SECTION 3: TRANSITION ========== */
+        .transition-section {
+            height: 250vh;
+            position: relative;
+            background-color: var(--color-night);
+        }
+
+        .transition-pin {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .transition-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--color-text-light);
+            line-height: 1.3;
+            max-width: 580px;
+            padding: 0 var(--side-padding);
+            position: absolute;
+            opacity: 0;
+        }
+
+        .transition-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--color-gold);
+            opacity: 0;
+        }
+
+        /* ========== SECTION 4: SOLUTION ========== */
+        .solution-logo {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--color-text-dark);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-underline {
+            width: 50px;
+            height: 2px;
+            background: var(--color-gold);
+            margin: 0 auto 0.75rem;
+        }
+
+        .solution-tagline {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .solution-desc {
+            text-align: center;
+            font-size: 1.0625rem;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .solution-desc .strikethrough {
+            position: relative;
+            color: var(--color-text-muted);
+        }
+
+        .solution-desc .strikethrough::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-ember);
+            transition: width 0.6s ease;
+        }
+
+        .solution-desc .strikethrough.is-visible::after {
+            width: 100%;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-dark);
+        }
+
+        .solution-bottom {
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        .solution-bottom .num {
+            color: var(--color-ember);
+        }
+
+        /* ========== SECTION 5: BENEFITS ========== */
+        .benefit-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .benefit-block:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        .benefit-text h3 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--color-text-dark);
+        }
+
+        .benefit-text p {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ========== SECTION 6: EXPERTS TIMELINE ========== */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            width: 2px;
+            height: 0;
+            background: rgba(212, 168, 83, 0.3);
+        }
+
+        .timeline-block {
+            position: relative;
+            padding-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .timeline-block:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: -2.5rem;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-gold);
+            border: 3px solid var(--color-warm);
+            z-index: 2;
+        }
+
+        .timeline-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gold);
+            margin-bottom: 0.375rem;
+        }
+
+        .timeline-experts {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ========== SECTION 7: BONUSES ========== */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bonus-card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            opacity: 0;
+            transform: perspective(600px) rotateY(5deg);
+        }
+
+        .bonus-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--color-gold);
+            color: var(--color-night);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .bonus-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .bonus-card p {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .bonus-value {
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        .bonus-value del {
+            color: var(--color-text-muted);
+            margin-right: 0.5rem;
+        }
+
+        .bonus-value .free {
+            color: var(--color-ember);
+            font-weight: 700;
+        }
+
+        /* ========== SECTION 8: PRICING ========== */
+        .pricing-section {
+            text-align: center;
+        }
+
+        .pricing-compare {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-compare del {
+            text-decoration: line-through;
+        }
+
+        .pricing-sub {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+
+        .price-stack {
+            margin-bottom: 2.5rem;
+        }
+
+        .price-stack .old-price {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-stack .today-label {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-stack .price-main {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 10vw, 5.5rem);
+            font-weight: 900;
+            color: var(--color-gold-bright);
+            display: block;
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(240, 199, 94, 0.25);
+        }
+
+        .price-stack .price-details {
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* ========== SECTION 9: TESTIMONIALS ========== */
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .testimonial-card:nth-child(2) {
+            margin-top: 1rem;
+        }
+
+        .testimonial-stars {
+            color: var(--color-gold);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        .testimonial-title {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .testimonial-body {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        /* ========== SECTION 10: FAQ ========== */
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            gap: 1rem;
+            user-select: none;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .faq-item.is-open .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.is-open .faq-answer {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        /* ========== SECTION 11: FINAL CTA ========== */
+        .final-cta {
+            text-align: center;
+        }
+
+        .final-cta .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .final-price-line {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--color-gold);
+            margin-bottom: 2rem;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #07090D;
+            text-align: center;
+            padding: 3rem var(--side-padding);
+        }
+
+        .footer-logo {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-copy {
+            font-size: 0.6875rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            font-size: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            transition: color 0.2s;
+            margin: 0 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+
+        /* ========== STICKY MOBILE CTA ========== */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 14, 20, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+            padding: 0.75rem 1rem;
+            align-items: center;
+            justify-content: space-between;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .sticky-cta.is-visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-price {
+            color: var(--color-gold);
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .sticky-cta-price span {
+            display: block;
+            font-size: 0.6875rem;
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        .sticky-cta .cta-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 3.5rem;
+            }
+
+            .hero-orb {
+                width: 300px;
+                height: 300px;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-cta {
+                display: flex;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .testimonial-card:nth-child(2) {
+                margin-top: 0;
+            }
+
+            .pain-card {
+                padding: 1.25rem 1.5rem;
+            }
+        }
+
+        /* ========== ANIMATION UTILITIES ========== */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-night);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-gold);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NOISE TEXTURE OVERLAY -->
+    <svg class="noise-overlay" width="100%" height="100%">
+        <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain)" />
+    </svg>
+
+    <!-- ==================== SECTION 1: HERO ==================== -->
+    <section class="section section--dark hero" id="hero">
+        <div class="hero-logo">STARBIZ VOICES</div>
+        <div class="hero-orb"></div>
+        <div class="hero-content">
+            <p class="hero-pre">For parents who feel screens stole their child...</p>
+            <h1 class="hero-headline">When was the last time your child looked you in the eyes... without you asking?
+            </h1>
+            <p class="hero-sub">The 21-Day Audio Protocol created by Neuroscientists and Psychologists. 5 minutes a
+                day. No screens. No fighting.</p>
+            <div class="hero-cta-wrap">
+                <a href="/auth/magic" class="cta-btn">GET STARTED FOR JUST $17 →</a>
+                <span class="cta-sub">Instant Access · 7-Day Guarantee · One-Time Payment</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: PAIN ==================== -->
+    <section class="section section--dark" id="problema">
+        <div class="section-inner">
+            <p class="pre-title" style="color: var(--color-ember);">🛑 THE UNCOMFORTABLE TRUTH</p>
+            <h2 class="section-title section-title--lg" style="color: var(--color-text-light);">Your Child's "Digital
+                Kidnapping"</h2>
+
+            <div class="pain-card">
+                <h3>The Silence at Dinner</h3>
+                <p>You sit down to eat and all you see is the top of their head, lit up by a blue glow.
+                    You try to talk. Nothing. Just the screen's reflection in their eyes.</p>
+            </div>
+            <div class="pain-card">
+                <h3>The Invisible Wall</h3>
+                <p>You ask how their day was. "Fine." "What did you do?" "Nothing." Every answer is a wall. You live with
+                    a stranger who used to be your best friend.</p>
+            </div>
+            <div class="pain-card">
+                <h3>The Guilt That Keeps You Up at Night</h3>
+                <p>You know you should do something. But you come home exhausted from work and don't have the energy or
+                    the words for another fight that leads nowhere.</p>
+            </div>
+
+            <div class="pain-closing anim-fade-up">
+                <span class="highlight-gold">It's not your fault.</span>
+                <p style="color: rgba(245,230,211,0.7);">Their brain has been engineered for addiction by Silicon
+                    Valley engineers. You can't win that war alone.</p>
+                <p><span class="highlight-ember">But today, that changes.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: TRANSITION ==================== -->
+    <section class="section transition-section" id="transicion">
+        <div class="transition-pin">
+            <div class="transition-particles" id="particles"></div>
+            <p class="transition-text" id="t-text-1">What if there was a way?</p>
+            <p class="transition-text" id="t-text-2">A way that only takes 5 minutes a day?</p>
+            <p class="transition-text" id="t-text-3">That works while you drive, cook, or walk?</p>
+            <p class="transition-text" id="t-text-4" style="font-weight: 700;">It exists. And it's called...</p>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: SOLUTION ==================== -->
+    <section class="section section--warm" id="solucion">
+        <div class="section-inner">
+            <div class="anim-fade-up">
+                <h2 class="solution-logo">STARBIZ VOICES</h2>
+                <div class="solution-underline"></div>
+                <p class="solution-tagline">"The Netflix of Modern Parenting"</p>
+            </div>
+
+            <div class="solution-desc anim-fade-up">
+                <span class="strikethrough">You don't need 300-page books.</span><br>
+                <span class="strikethrough">You don't need $100/hour therapy.</span><br>
+                Just your <strong>headphones</strong> and <strong>5 minutes</strong>.
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-card">
+                    <div class="icon">🚗</div>
+                    <p>While you drive</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🍳</div>
+                    <p>While you cook</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🚶</div>
+                    <p>While you walk</p>
+                </div>
+            </div>
+
+            <p class="solution-bottom anim-fade-up">
+                <span class="num">21</span> Days. <span class="num">21</span> Experts. <span class="num">5</span>
+                Minutes a Day.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: BENEFITS ==================== -->
+    <section class="section section--light" id="beneficios">
+        <div class="section-inner">
+            <h2 class="section-title section-title--lg anim-fade-up">In 21 days you'll have the tools to:</h2>
+
+            <div class="benefit-block">
+                <span class="benefit-icon">🧠</span>
+                <div class="benefit-text">
+                    <h3>Understand Their Brain</h3>
+                    <p>Discover why dopamine controls their behavior and how to "hack" their reward system
+                        so they actually listen to you.</p>
+                </div>
+            </div>
+            <div class="benefit-block">
+                <span class="benefit-icon">🗣️</span>
+                <div class="benefit-text">
+                    <h3>Break the Silence</h3>
+                    <p>Learn the "Key Phrases" that open real conversations without making them feel interrogated or
+                        attacked.</p>
+                </div>
+            </div>
+            <div class="benefit-block">
+                <span class="benefit-icon">🛡️</span>
+                <div class="benefit-text">
+                    <h3>Shield Their Mind</h3>
+                    <p>Protect them from bullying, pornography, and the toxic comparison of Instagram before it's
+                        too late.</p>
+                </div>
+            </div>
+            <div class="benefit-block">
+                <span class="benefit-icon">❤️</span>
+                <div class="benefit-text">
+                    <h3>Become Their Hero</h3>
+                    <p>Stop being the "bad cop" and become the mentor they admire, respect, and seek out
+                        voluntarily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 6: EXPERTS TIMELINE ==================== -->
+    <section class="section section--warm" id="expertos">
+        <div class="section-inner">
+            <h2 class="section-title section-title--lg anim-fade-up">Your Pocket Expert Panel</h2>
+            <p class="anim-fade-up" style="color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 1rem;">For
+                less than the cost of a pizza, you get access to this elite team:</p>
+
+            <div class="timeline" id="timeline">
+                <div class="timeline-block">
+                    <div class="timeline-node"></div>
+                    <p class="timeline-label">BLOCK 1 · DAYS 1-5 · FOUNDATIONS</p>
+                    <p class="timeline-experts">Dr. Elena (Neuroscience) · Dr. Marco (Psychology)</p>
+                    <p class="timeline-desc">Understand the chemical addiction trapping your child. Stop fighting against
+                        the wall and start understanding it.</p>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-node"></div>
+                    <p class="timeline-label">BLOCK 2 · DAYS 6-10 · COMMUNICATION</p>
+                    <p class="timeline-experts">Dr. Carolina (Self-Esteem) · Coach David (Gaming)</p>
+                    <p class="timeline-desc">Learn to speak their language — whether it's video games, social media, or
+                        makeup — to earn their trust without forcing it.</p>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-node"></div>
+                    <p class="timeline-label">BLOCK 3 · DAYS 11-15 · HEALTH & ENVIRONMENT</p>
+                    <p class="timeline-experts">Dr. Esteban (Nutrition) · Dr. Monica (Crisis)</p>
+                    <p class="timeline-desc">Improve their sleep, clean up their digital diet, and prevent anxiety and
+                        depression before they become a crisis.</p>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-node"></div>
+                    <p class="timeline-label">BLOCK 4 · DAYS 16-21 · ADVANCED STRATEGIES</p>
+                    <p class="timeline-experts">Coach Victor (Discipline) · Henry Orellana (Mentoring)</p>
+                    <p class="timeline-desc">The tough topics: pornography, positive discipline, and a real future plan.
+                        How to prepare them for success without destroying the relationship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 7: BONUSES ==================== -->
+    <section class="section section--light" id="bonos">
+        <div class="section-inner">
+            <p class="pre-title" style="color: var(--color-ember); text-align: center;">🎁 ORDER TODAY AND GET
+                FREE:</p>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">FREE</span>
+                    <h3>The Family Technology Contract</h3>
+                    <p>The professional template for setting screen rules without yelling or drama. Print it,
+                        sign it as a family, and stick it on the fridge.</p>
+                    <p class="bonus-value"><del>$27 USD</del> <span class="free">FREE</span></p>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-badge">FREE</span>
+                    <h3>Weekend Detox Guide</h3>
+                    <p>The step-by-step guide for a 24-hour "Dopamine Reset" with your child without them hating you by
+                        the end of the day.</p>
+                    <p class="bonus-value"><del>$19 USD</del> <span class="free">FREE</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 8: PRICING ==================== -->
+    <section class="section section--dark pricing-section" id="precio">
+        <div class="section-inner">
+            <h2 class="section-title section-title--xl anim-fade-up"
+                style="color: var(--color-text-light); text-align: center;">What is your child's mental health worth?
+            </h2>
+
+            <p class="pricing-compare anim-fade-up">A single session with <strong>one</strong> of these psychologists costs
+                <del>$80 - $150 USD</del></p>
+            <p class="pricing-sub anim-fade-up">Here you get <strong>21 experts</strong> with you. Forever.</p>
+
+            <div class="price-stack anim-fade-up">
+                <span class="old-price">Real value: $297 USD</span>
+                <span class="old-price">Regular price: $47 USD</span>
+                <span class="today-label">TODAY ONLY:</span>
+                <span class="price-main">$17</span>
+                <span class="price-details">USD · One-time payment · Lifetime access</span>
+            </div>
+
+            <div class="anim-fade-up" style="text-align: center;">
+                <a href="/auth/magic" class="cta-btn cta-btn--large cta-btn--pulse">YES, I WANT TO RECONNECT WITH MY CHILD NOW</a>
+                <span class="cta-sub" style="color: var(--color-text-muted);">⬇ Instant Download · 7-Day Guarantee
+                    ⬇</span>
+                <div class="trust-badges">
+                    <span>🔒 Secure Payment</span>
+                    <span>✅ 7-Day Guarantee</span>
+                    <span>📱 Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 9: TESTIMONIALS ==================== -->
+    <section class="section section--warm" id="testimonios">
+        <div class="section-inner">
+            <h2 class="section-title section-title--lg anim-fade-up">What parents like you are saying</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <h3 class="testimonial-title">"I cried listening to audio 12"</h3>
+                    <p class="testimonial-body">"I never knew how to talk about suicide with my daughter. Dr. Monica gave
+                        me the exact words. That conversation changed our lives. Thank you Starbiz."</p>
+                    <p class="testimonial-author">— Laura M., Mother of 2 teenagers</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <h3 class="testimonial-title">"Perfect for listening in the car"</h3>
+                    <p class="testimonial-body">"I'm a busy dad, I don't have time to read. I play Starbiz Voices
+                        on my way to work and come home with a new strategy every day. My son has quit
+                        Fortnite and started playing sports."</p>
+                    <p class="testimonial-author">— Carlos R., Entrepreneur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 10: FAQ ==================== -->
+    <section class="section section--light" id="faq">
+        <div class="section-inner">
+            <h2 class="section-title section-title--lg anim-fade-up">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Is this a video course or audio?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>They are high-quality MP3 audios. They are specifically designed so you DON'T have to look at a
+                        screen. Listen to them while you drive, cook, walk, or exercise. The irony of using
+                        more screens to solve the screen problem was not lost on us.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Does it work if my child is 8 or 18?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The neuroscience and communication principles taught by our 21 experts apply to children
+                        ages 9 to 19. We adapt the language and strategies to work for both Gen Z and
+                        Gen Alpha.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you offer a money-back guarantee?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. If within 7 days you don't feel you've learned something valuable, we'll refund your $17. No
+                        questions asked, no hassle. The risk is entirely ours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 11: FINAL CTA ==================== -->
+    <section class="section section--dark final-cta" id="final">
+        <div class="section-inner" style="text-align: center;">
+            <h2 class="section-title section-title--xl anim-fade-up" style="color: var(--color-text-light);">Your kids
+                won't wait.</h2>
+            <p class="final-price-line anim-fade-up">$17 · 21 Days · Your Family Deserves This</p>
+            <div class="anim-fade-up">
+                <a href="/auth/magic" class="cta-btn cta-btn--large cta-btn--pulse">YES, I WANT TO RECONNECT WITH MY CHILD NOW</a>
+                <span class="cta-sub" style="color: var(--color-text-muted);">Instant Download · 7-Day
+                    Guarantee</span>
+                <div class="trust-badges">
+                    <span>🔒 Secure Payment</span>
+                    <span>✅ 7-Day Guarantee</span>
+                    <span>📱 Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <p class="footer-logo">STARBIZ VOICES</p>
+        <p class="footer-disclaimer">This product is educational and does not replace professional clinical therapy. If your
+            child is in crisis, please seek immediate professional help.</p>
+        <p class="footer-copy">&copy; 2026 Starbiz Academy. All rights reserved.</p>
+        <p class="footer-links">
+            <a href="#">Privacy Policy</a> ·
+            <a href="#">Terms of Use</a> ·
+            <a href="#">Support</a>
+        </p>
+    </footer>
+
+    <!-- ==================== STICKY MOBILE CTA ==================== -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-cta-price">
+            $17 USD
+            <span>One-time payment</span>
+        </div>
+        <a href="/auth/magic" class="cta-btn">GET STARTED NOW →</a>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+
+    <script>
+        // ========== LENIS SMOOTH SCROLL ==========
+        let lenis;
+        try {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } catch (e) {
+            console.warn('Lenis not loaded, falling back to native scroll');
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }
+
+        // ========== REGISTER PLUGINS ==========
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ========== MANUAL SPLIT TEXT (replaces GSAP SplitText plugin) ==========
+        function splitTextIntoWords(selector) {
+            const el = document.querySelector(selector);
+            if (!el) return [];
+            const text = el.textContent.trim();
+            const words = text.split(/\s+/);
+            el.innerHTML = words.map(w => `<span class="word" style="display:inline-block;opacity:0;transform:translateY(20px)">${w}</span>`).join(' ');
+            return el.querySelectorAll('.word');
+        }
+
+        // ========== HERO ANIMATIONS ==========
+        const heroTl = gsap.timeline({ delay: 0.3 });
+
+        // Pre-headline fade in
+        heroTl.to('.hero-pre', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+
+        // Split headline into words manually
+        const heroWords = splitTextIntoWords('.hero-headline');
+        heroTl.to(heroWords, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.05,
+            duration: 0.7,
+            ease: 'power3.out'
+        }, '-=0.3');
+
+        // Sub headline
+        heroTl.to('.hero-sub', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.2');
+
+        // CTA
+        heroTl.to('.hero-cta-wrap', {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.4)'
+        }, '-=0.3');
+
+        // ========== PAIN CARDS ==========
+        gsap.utils.toArray('.pain-card').forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 82%',
+                    toggleActions: 'play none none none'
+                },
+                delay: i * 0.15
+            });
+        });
+
+        // Pain closing
+        gsap.utils.toArray('#problema .anim-fade-up').forEach(el => {
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== TRANSITION SECTION ==========
+        // Create particles
+        const particleContainer = document.getElementById('particles');
+        for (let i = 0; i < 18; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            const size = 3 + Math.random() * 3;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.opacity = 0.15 + Math.random() * 0.25;
+            p.style.animation = `floatUp ${8 + Math.random() * 8}s linear ${Math.random() * 5}s infinite`;
+            particleContainer.appendChild(p);
+        }
+
+        // Add float keyframes
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+        }
+    `;
+        document.head.appendChild(styleSheet);
+
+        // Transition pin + text crossfade
+        const transitionTexts = ['#t-text-1', '#t-text-2', '#t-text-3', '#t-text-4'];
+        const transitionSection = document.querySelector('.transition-section');
+
+        const tTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.transition-section',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1,
+                pin: '.transition-pin',
+            }
+        });
+
+        // Background color transition (night → dawn → warm)
+        tTl.to(transitionSection, {
+            backgroundColor: '#1A1520',
+            duration: 0.4,
+            ease: 'none'
+        }, 0);
+        tTl.to(transitionSection, {
+            backgroundColor: '#2A2030',
+            duration: 0.3,
+            ease: 'none'
+        }, 0.3);
+        tTl.to(transitionSection, {
+            backgroundColor: '#FFF8F0',
+            duration: 0.3,
+            ease: 'none'
+        }, 0.6);
+
+        // Also transition text color for readability on light bg
+        tTl.to(['.transition-text'], {
+            color: '#1A1A1A',
+            duration: 0.3,
+        }, 0.6);
+
+        transitionTexts.forEach((sel, i) => {
+            const startPos = i * 0.25;
+            // Fade in
+            tTl.to(sel, {
+                opacity: 1,
+                duration: 0.08,
+                ease: 'power1.inOut'
+            }, startPos);
+            // Fade out (except last)
+            if (i < transitionTexts.length - 1) {
+                tTl.to(sel, {
+                    opacity: 0,
+                    duration: 0.05,
+                    ease: 'power1.inOut'
+                }, startPos + 0.18);
+            }
+        });
+
+        // ========== SOLUTION SECTION ==========
+        // Strikethrough animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.strikethrough').forEach(el => observer.observe(el));
+
+        // Feature cards
+        gsap.utils.toArray('.feature-card').forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                delay: i * 0.12,
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== GENERIC FADE-UP ANIMATIONS ==========
+        gsap.utils.toArray('.anim-fade-up').forEach(el => {
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== BENEFITS ==========
+        gsap.utils.toArray('.benefit-block').forEach((block, i) => {
+            gsap.to(block, {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                ease: 'power2.out',
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: block,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== TIMELINE ==========
+        const timelineLine = document.querySelector('.timeline::before') || document.querySelector('.timeline');
+
+        // Animate timeline line height
+        gsap.to('#timeline::before', {
+            height: '100%',
+            duration: 1,
+        });
+
+        // Workaround: animate via a CSS variable
+        gsap.fromTo('#timeline',
+            { '--line-h': '0%' },
+            {
+                '--line-h': '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#timeline',
+                    start: 'top 70%',
+                    end: 'bottom 70%',
+                    scrub: 0.5,
+                }
+            }
+        );
+
+        // Add dynamic style for timeline line
+        const timelineStyle = document.createElement('style');
+        timelineStyle.textContent = `
+        #timeline::before {
+            height: var(--line-h, 0%);
+        }
+    `;
+        document.head.appendChild(timelineStyle);
+
+        gsap.utils.toArray('.timeline-block').forEach((block, i) => {
+            gsap.to(block, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: block,
+                    start: 'top 80%',
+                }
+            });
+        });
+
+        // ========== BONUS CARDS ==========
+        gsap.utils.toArray('.bonus-card').forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                rotateY: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                delay: i * 0.2,
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== TESTIMONIALS ==========
+        gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: 'power2.out',
+                delay: i * 0.15,
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                }
+            });
+        });
+
+        // ========== FAQ ACCORDION ==========
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const isOpen = item.classList.contains('is-open');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('is-open');
+            });
+
+            // Open clicked (if it wasn't already open)
+            if (!isOpen) {
+                item.classList.add('is-open');
+            }
+        }
+
+        // ========== STICKY MOBILE CTA ==========
+        const stickyCta = document.getElementById('stickyCta');
+
+        ScrollTrigger.create({
+            trigger: '#problema',
+            start: 'top 50%',
+            onEnter: () => stickyCta.classList.add('is-visible'),
+            onLeaveBack: () => stickyCta.classList.remove('is-visible'),
+        });
+
+        // Hide sticky when near footer
+        ScrollTrigger.create({
+            trigger: '.footer',
+            start: 'top bottom',
+            onEnter: () => stickyCta.classList.remove('is-visible'),
+            onLeaveBack: () => stickyCta.classList.add('is-visible'),
+        });
+
+        // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    if (lenis) {
+                        lenis.scrollTo(target, { offset: -20 });
+                    } else {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
